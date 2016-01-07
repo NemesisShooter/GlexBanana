@@ -12,10 +12,24 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
    ,-0.5f + pos_x, -0.5f + pos_y,  0.5f +pos_z
    ,-0.5f + pos_x,  0.5f + pos_y,  0.5f +pos_z
   };
+  vertex_buffer_length = sizeof(vertex_buffer);
 
-  element_buffer_length = 6;
+  //Adding colors to color buffer
+  GLfloat color_buffer[] = {
+    0.1f, 0.2f, 0.9f,
+    0.9f, 0.0f, 0.2f,
+    0.5f, 0.4f, 0.7f,
+    0.0f, 0.0f, 0.0f,
+    0.2f, 0.5f, 0.1f,
+    0.8f, 0.3f, 0.3f,
+    0.7f, 0.1f, 0.5f,
+    0.6f, 0.7f, 0.8f,
+  };
+  color_buffer_length = sizeof(color_buffer);
+
+  //Creating a cube with the use of coordinates
   GLuint element_buffer []  {
-    0, 1, 2
+        0, 1, 2
       , 1, 3, 2
       , 2, 3, 4
       , 3, 5, 4
@@ -28,21 +42,29 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
       , 5, 6, 4
       , 5, 7, 6
   };
+  element_buffer_length = sizeof(element_buffer);
 
   // Transfer buffers to the GPU
   //
 
   // create buffer
-  glGenBuffers(1, &vertex_buffer_token);
-
   // immediately bind the buffer and transfer the data
+  glGenBuffers(1, &vertex_buffer_token);
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 12, vertex_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, color_buffer_length, vertex_buffer, GL_STATIC_DRAW);
 
+  // Send over GLfloats for the colours
+  glGenBuffers(1, &color_buffer_token);
+  glBindBuffer(GL_ARRAY_BUFFER, color_buffer_token);
+  glBufferData(GL_ARRAY_BUFFER, color_buffer_length, color_buffer, GL_STATIC_DRAW);
+
+  // Send over GLfloats for the elements (joining the triangles)
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * element_buffer_length, element_buffer, GL_STATIC_DRAW);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, element_buffer_length, element_buffer, GL_STATIC_DRAW);
 }
+
+
 
 CubeAsset::~CubeAsset() {
 }
@@ -93,27 +115,38 @@ void CubeAsset::Draw(GLuint program_token) {
 
   // use the previously transferred buffer as the vertex array.  This way
   // we transfer the buffer once -- at construction -- not on every frame.
+
+  glEnableVertexAttribArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glVertexAttribPointer(
-                        position_attrib,               /* attribute */
-                        3,                             /* size */
-                        GL_FLOAT,                      /* type */
-                        GL_FALSE,                      /* normalized? */
-                        0,                             /* stride */
-                        (void*)0                       /* array buffer offset */
-                        );
-  glEnableVertexAttribArray(position_attrib);
+    0,        /* attribute */
+    3,        /* size */
+    GL_FLOAT,   /* type */
+    GL_FALSE,   /* normalized? */
+    0,        /* stride */
+    (void*)0    /* array buffer offset */
+  );
+  glEnableVertexAttribArray(1);
+  checkGLError();
 
+  glBindBuffer(GL_ARRAY_BUFFER, color_buffer_token);
+  glVertexAttribPointer(
+    1,        /* attribute */
+    3,        /* size */
+    GL_FLOAT,   /* type */
+    GL_FALSE,   /* normalized? */
+    0,        /* stride */
+    (void*)0    /* array buffer offset */
+  );
   checkGLError();
 
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
   glDrawElements(
-                 GL_TRIANGLES,
-                 element_buffer_length,
-                 GL_UNSIGNED_INT,
-                 (GLvoid*) 0
-                 );
-
+    GL_TRIANGLES,
+    element_buffer_length,
+    GL_UNSIGNED_INT,
+    (GLvoid*) 0
+  );
   checkGLError();
 
   glDisableVertexAttribArray(position_attrib);
