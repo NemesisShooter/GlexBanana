@@ -14,6 +14,7 @@ class CubeAsset : public GameAsset {
   CubeAsset(GLfloat, GLfloat, GLfloat);
   ~CubeAsset();
   virtual void Draw(GLuint);
+  float rf();
 
  private:
   GLuint vertex_buffer_length, element_buffer_length, color_buffer_length;
