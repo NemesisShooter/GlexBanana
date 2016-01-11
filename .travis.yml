@@ -20,5 +20,10 @@ only:
 
 os:
 - linux
+- osx
+
+matrix:
+  allow_failures:
+    - os: osx
 
 sudo: true
