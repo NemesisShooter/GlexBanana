@@ -9,6 +9,8 @@
 #include <iostream>
 
 #include <GL/gl.h>
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
 
 #include "common.h"
 #include "GameAsset.h"
@@ -26,7 +28,7 @@ class GameAssetManager {
   GameAssetManager(GameAssetManager const&&); // move constructor
   void operator=(GameAssetManager const&); // assignment
   void AddAsset(std::shared_ptr<GameAsset>);
-  void Draw();
+  void Draw(glm::mat4, glm::mat4);
 
  private:
   GLuint CreateGLProgram(std::string &, std::string &);

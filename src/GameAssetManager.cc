@@ -65,10 +65,19 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
 /**
  * Draws each GameAsset in the scene graph.
  */
-void GameAssetManager::Draw() {
+void GameAssetManager::Draw(glm::mat4 camera_projection, glm::mat4 camera_view) {
   for(auto ga: draw_list) {
     ga->Draw(program_token);
   }
+    glm::mat4 camera_model(1.0f);
+
+  GLuint location_of_camera_projection=glGetUniformLocation(program_token, "camera_projection");
+  GLuint location_of_camera_model=glGetUniformLocation(program_token, "camera_model");
+  GLuint location_of_camera_view=glGetUniformLocation(program_token, "camera_view");
+
+  glUniformMatrix4fv(location_of_camera_projection, 1, GL_FALSE, &camera_projection[0][0]);
+  glUniformMatrix4fv(location_of_camera_model, 1, GL_FALSE, &camera_view[0][0]);
+  glUniformMatrix4fv(location_of_camera_view, 1, GL_FALSE, &camera_model[0][0]);
 }
 
 /**

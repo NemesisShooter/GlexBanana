@@ -20,7 +20,27 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager(std::make_shared<Gam
 	}
 }
 
+void GameWorld::Draw() 
+{
+	glm::vec3 direction(
+		cos(camera_y) * sin(camera_x),
+		sin(camera_y),
+		cos(camera_y) * cos(camera_x)
+		);
 
-void GameWorld::Draw() {
-  asset_manager->Draw();
+//view of the camera Pi/2
+	x_direction = glm::vec3(
+		sin(camera_x - 3.14f/2.0f),
+		0,
+		cos(camera_x - 3.14f/2.0f)
+		);
+
+	glm::vec3 vup = glm::cross(x_direction, direction);
+	glm::mat4 camera_projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
+	glm::mat4 camera_view = glm::lookAt(
+		position,
+		position + direction,
+		vup
+	);
+  asset_manager->Draw(camera_projection, camera_view);
 }

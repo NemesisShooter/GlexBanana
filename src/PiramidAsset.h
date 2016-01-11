@@ -1,5 +1,5 @@
-#ifndef CUBEASSET_H
-#define CUBEASSET_H
+#ifndef PIRAMIDASSET_H
+#define PIRAMIDASSET_H
 
 #include <vector>
 
@@ -9,16 +9,16 @@
 
 #include "GameAsset.h"
 
-class CubeAsset : public GameAsset {
+class PiramidAsset : public GameAsset {
  public:
-  CubeAsset(GLfloat, GLfloat, GLfloat);
-  ~CubeAsset();
+  PiramidAsset(GLfloat, GLfloat, GLfloat);
+  ~PiramidAsset();
   virtual void Draw(GLuint);
-  float rngfloat();
+  float randfloat();
 
  private:
   GLuint vertex_buffer_length, element_buffer_length, color_buffer_length;
   GLuint vertex_buffer_token, element_buffer_token, color_buffer_token;
 };
 
-#endif // CUBEASSET_H
+#endif // PIRAMIDASSET_H

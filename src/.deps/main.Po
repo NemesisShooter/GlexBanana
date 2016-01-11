@@ -775,10 +775,10 @@ main.o: main.cc /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  GameAssetManager.h /usr/include/c++/4.9/fstream \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/c++io.h \
- /usr/include/c++/4.9/bits/fstream.tcc GameAsset.h CubeAsset.h \
- /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
- /usr/include/glm/fwd.hpp /usr/include/glm/detail/type_int.hpp \
- /usr/include/glm/detail/setup.hpp /usr/include/glm/detail/type_float.hpp \
+ /usr/include/c++/4.9/bits/fstream.tcc /usr/include/glm/glm.hpp \
+ /usr/include/glm/detail/_fixes.hpp /usr/include/glm/fwd.hpp \
+ /usr/include/glm/detail/type_int.hpp /usr/include/glm/detail/setup.hpp \
+ /usr/include/glm/detail/type_float.hpp \
  /usr/include/glm/detail/type_vec.hpp \
  /usr/include/glm/detail/precision.hpp \
  /usr/include/glm/detail/type_int.hpp \
@@ -983,7 +983,8 @@ main.o: main.cc /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/glm/detail/intrinsic_matrix.hpp \
  /usr/include/glm/detail/intrinsic_geometric.hpp \
  /usr/include/glm/detail/intrinsic_matrix.inl \
- /usr/include/glm/gtx/simd_vec4.hpp /usr/include/glm/gtx/simd_mat4.inl
+ /usr/include/glm/gtx/simd_vec4.hpp /usr/include/glm/gtx/simd_mat4.inl \
+ GameAsset.h CubeAsset.h
 
 /usr/include/stdc-predef.h:
 
@@ -2773,10 +2774,6 @@ GameAssetManager.h:
 
 /usr/include/c++/4.9/bits/fstream.tcc:
 
-GameAsset.h:
-
-CubeAsset.h:
-
 /usr/include/glm/glm.hpp:
 
 /usr/include/glm/detail/_fixes.hpp:
@@ -3362,3 +3359,7 @@ CubeAsset.h:
 /usr/include/glm/gtx/simd_vec4.hpp:
 
 /usr/include/glm/gtx/simd_mat4.inl:
+
+GameAsset.h:
+
+CubeAsset.h:

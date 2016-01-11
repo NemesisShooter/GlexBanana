@@ -29,5 +29,23 @@ class GameWorld {
   void Draw();
  private:
   std::shared_ptr<GameAssetManager> asset_manager;
+
+
+    int block_dist = 3;
+
+    GLfloat camera_speed = 0.1;
+    GLfloat camera_x = 0.0;
+    GLfloat camera_y = 0.0;
+
+    double point = 0.39375;
+
+    std::string f_pos = "N";
+
+    glm::vec3 offset_pos;
+    glm::vec3 position = glm::vec3(0, 0, -3);
+    glm::vec3 x_direction;
+    
+    glm::mat4 camera_projection;
+    glm::mat4 camera_view;
 };
 #endif // GAMEWORLD_H

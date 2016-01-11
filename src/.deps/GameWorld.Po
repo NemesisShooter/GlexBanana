@@ -128,9 +128,9 @@ GameWorld.o: GameWorld.cc /usr/include/stdc-predef.h GameWorld.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/4.9/bits/c++io.h \
  /usr/include/c++/4.9/bits/fstream.tcc /usr/include/c++/4.9/iostream \
- GameAsset.h CubeAsset.h /usr/include/glm/glm.hpp \
- /usr/include/glm/detail/_fixes.hpp /usr/include/c++/4.9/cmath \
- /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/huge_val.h \
+ /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
+ /usr/include/c++/4.9/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
  /usr/include/x86_64-linux-gnu/bits/inf.h \
@@ -361,7 +361,8 @@ GameWorld.o: GameWorld.cc /usr/include/stdc-predef.h GameWorld.h \
  /usr/include/glm/detail/intrinsic_matrix.hpp \
  /usr/include/glm/detail/intrinsic_geometric.hpp \
  /usr/include/glm/detail/intrinsic_matrix.inl \
- /usr/include/glm/gtx/simd_vec4.hpp /usr/include/glm/gtx/simd_mat4.inl
+ /usr/include/glm/gtx/simd_vec4.hpp /usr/include/glm/gtx/simd_mat4.inl \
+ GameAsset.h CubeAsset.h
 
 /usr/include/stdc-predef.h:
 
@@ -702,10 +703,6 @@ GameAssetManager.h:
 /usr/include/c++/4.9/bits/fstream.tcc:
 
 /usr/include/c++/4.9/iostream:
-
-GameAsset.h:
-
-CubeAsset.h:
 
 /usr/include/glm/glm.hpp:
 
@@ -1358,3 +1355,7 @@ CubeAsset.h:
 /usr/include/glm/gtx/simd_vec4.hpp:
 
 /usr/include/glm/gtx/simd_mat4.inl:
+
+GameAsset.h:
+
+CubeAsset.h:
