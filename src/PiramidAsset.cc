@@ -1,21 +1,21 @@
-#include "CubeAsset.h"
+#include "PiramidAsset.h"
 
-CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
+PiramidAsset::PiramidAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
   //model coordinates, origin at centre.
-  GLfloat vertex_buffer [] {
-   0.0f + pos_x,    0.5f + pos_y,  0.0f +pos_z//0
+  GLfloat vertex_buffer [] 
+  {
+     0.0f + pos_x,  0.5f + pos_y,  0.0f +pos_z//0
    , 0.5f + pos_x,  0.0f + pos_y, -0.5f +pos_z//1
    ,-0.5f + pos_x,  0.0f + pos_y, -0.5f +pos_z//2
-   , 0.5f + pos_x,  0.5f + pos_y, -0.5f +pos_z//3
-   , 0.5f + pos_x, -0.5f + pos_y,  0.5f +pos_z//4
-   , 0.5f + pos_x, -0.5f + pos_y,  0.5f +pos_z//5
+   , 0.0f + pos_x,  0.0f + pos_y,  0.5f +pos_z//3
+   , 0.0f + pos_x,  0.0f + pos_y,  0.5f +pos_z//4
+   , 0.0f + pos_x,  0.0f + pos_y,  0.5f +pos_z//5
   };
+
   vertex_buffer_length = sizeof(vertex_buffer);
 
-  GLfloat color_buffer[] = {
-    rngfloat(),  rngfloat(),  rngfloat(),
-    rngfloat(),  rngfloat(),  rngfloat(),
-    rngfloat(),  rngfloat(),  rngfloat(),
+  GLfloat color_buffer[] = 
+  {
     rngfloat(),  rngfloat(),  rngfloat(),
     rngfloat(),  rngfloat(),  rngfloat(),
     rngfloat(),  rngfloat(),  rngfloat(),
@@ -25,8 +25,7 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
 
   color_buffer_length = sizeof(color_buffer);
 
-  //Creating a cube with the use of coordinates
-
+  //Creating a piramid with the use of coordinates
   GLuint element_buffer []  {
       0, 1, 2
     , 2, 3, 0
@@ -36,8 +35,6 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
   element_buffer_length = sizeof(element_buffer);
 
   // Transfer buffers to the GPU
-  //
-
   // create buffer
   // immediately bind the buffer and transfer the data
   glGenBuffers(1, &vertex_buffer_token);
@@ -56,12 +53,13 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
 }
 
 
-float CubeAsset::rngfloat(){
+float PiramidAsset::rngfloat(){
   float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
   return r;
 }
 
-CubeAsset::~CubeAsset() {
+PiramidAsset::~PiramidAsset() 
+{
 }
 
 #ifdef DEBUG
@@ -71,7 +69,7 @@ CubeAsset::~CubeAsset() {
 #define checkGLError()
 #endif
 
-void checkError(std::string file, int line) {
+void PiramidAsset::checkError(std::string file, int line) {
   GLenum gl_error = glGetError();
   if(GL_NO_ERROR != gl_error) {
     std::cerr << "GL error in " << file << " at line " << line << " error: " << gl_error << std::endl;
@@ -79,9 +77,9 @@ void checkError(std::string file, int line) {
   }
 }
 
-void CubeAsset::Draw(GLuint program_token) {
+void PiramidAsset::Draw(GLuint program_token) {
   if(!glIsProgram(program_token)) {
-    std::cerr << "Drawing Cube with invalid program" << std::endl;
+    std::cerr << "Drawing Piramid with invalid program" << std::endl;
     return;
   }
   GLint validation_ok;

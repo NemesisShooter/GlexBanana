@@ -14,18 +14,6 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
   };
   vertex_buffer_length = sizeof(vertex_buffer);
 
-  //Adding colors to color buffer
-  /*GLfloat color_buffer[] = {
-    0.1f, 0.2f, 0.9f,
-    0.9f, 0.0f, 0.2f,
-    0.5f, 0.4f, 0.7f,
-    0.0f, 0.0f, 0.0f,
-    0.2f, 0.5f, 0.1f,
-    0.8f, 0.3f, 0.3f,
-    0.7f, 0.1f, 0.5f,
-    0.6f, 0.7f, 0.8f,
-  };*/
-
   GLfloat color_buffer[] = {
     rngfloat(),  rngfloat(),  rngfloat(),
     rngfloat(),  rngfloat(),  rngfloat(),
@@ -37,22 +25,6 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
     rngfloat(),  rngfloat(),  rngfloat(),
   };
 
-  /*
-  GLfloat x = rngfloat();
-  GLfloat y = rngfloat();
-  GLfloat z = rngfloat();
-
-  GLfloat color_buffer[] = {
-    x,  y,  z,
-    x,  y,  z,
-    x,  y,  z,
-    x,  y,  z,
-    x,  y,  z,
-    x,  y,  z,
-    x,  y,  z,
-    x,  y,  z,
-  };
-  */
   color_buffer_length = sizeof(color_buffer);
 
   //Creating a cube with the use of coordinates

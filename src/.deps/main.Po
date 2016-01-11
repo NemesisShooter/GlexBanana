@@ -984,7 +984,7 @@ main.o: main.cc /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/glm/detail/intrinsic_geometric.hpp \
  /usr/include/glm/detail/intrinsic_matrix.inl \
  /usr/include/glm/gtx/simd_vec4.hpp /usr/include/glm/gtx/simd_mat4.inl \
- GameAsset.h CubeAsset.h
+ GameAsset.h CubeAsset.h PiramidAsset.h
 
 /usr/include/stdc-predef.h:
 
@@ -3363,3 +3363,5 @@ GameAssetManager.h:
 GameAsset.h:
 
 CubeAsset.h:
+
+PiramidAsset.h:
