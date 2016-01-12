@@ -13,7 +13,7 @@ PiramidAsset::PiramidAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
   };
 
   vertex_buffer_length = sizeof(vertex_buffer);
-
+//Using buffer to assign colours for shape
   GLfloat color_buffer[] = 
   {
     rngfloat(),  rngfloat(),  rngfloat(),
@@ -25,12 +25,12 @@ PiramidAsset::PiramidAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
 
   color_buffer_length = sizeof(color_buffer);
 
-  //Creating a piramid with the use of coordinates
+  //Creating a pyramid with the use of coordinates
   GLuint element_buffer []  {
-      0, 1, 2
-    , 2, 3, 0
-    , 0, 4, 1
-    , 1, 5, 2
+      0, 1, 2//side [1]
+    , 2, 3, 0//side [2]
+    , 0, 4, 1//side [3]
+    , 1, 5, 2//bottom [1]
   };
   element_buffer_length = sizeof(element_buffer);
 

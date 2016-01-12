@@ -14,6 +14,7 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
   };
   vertex_buffer_length = sizeof(vertex_buffer);
 
+//using buffer to assign colours for shape
   GLfloat color_buffer[] = {
     rngfloat(),  rngfloat(),  rngfloat(),
     rngfloat(),  rngfloat(),  rngfloat(),
@@ -30,18 +31,18 @@ CubeAsset::CubeAsset(GLfloat pos_x, GLfloat pos_y, GLfloat pos_z) {
   //Creating a cube with the use of coordinates
 
   GLuint element_buffer []  {
-      0, 1, 2
-    , 1, 3, 2
-    , 2, 3, 4
-    , 3, 5, 4
-    , 0, 2, 4
-    , 6, 0, 4
-    , 6, 7, 0
-    , 1, 0, 7
-    , 1, 7, 3
-    , 7, 5, 3
-    , 5, 6, 4
-    , 5, 7, 6
+      0, 1, 2//side[1]
+    , 1, 3, 2//side[2]
+    , 2, 3, 4//side[3]
+    , 3, 5, 4//side[4]
+    , 0, 2, 4//side[5]
+    , 6, 0, 4//side[6]
+    , 6, 7, 0//side[7]
+    , 1, 0, 7//side[8]
+    , 1, 7, 3//side[9]
+    , 7, 5, 3//side[10]
+    , 5, 6, 4//side[11]
+    , 5, 7, 6//side[12]
   };
   element_buffer_length = sizeof(element_buffer);
 
