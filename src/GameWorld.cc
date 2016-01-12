@@ -20,19 +20,7 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager(std::make_shared<Gam
 			asset_manager->AddAsset(std::make_shared<CubeAsset>(1.5*i, 1.5*i, 0.0));
 		}
 	}
-
-	//for(int p=0; p<3; p++)
-	//{
-	//	if(p == 0)
-	//	{
 			asset_manager->AddAsset(std::make_shared<PiramidAsset>(1.0, 0.0, 0.0));
-	//	}
-	//	else
-	//	{
-	//		asset_manager->AddAsset(std::make_shared<PiramidAsset>(-1.5*p, 1.5*p, 0.0));
-	//	}
-	//}
-
 }
 
 //camera formulas

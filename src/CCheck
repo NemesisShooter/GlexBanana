@@ -1,0 +1,6 @@
+[CubeAsset.cc:6]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[GameAssetManager.h:29]: (style) 'GameAssetManager::operator=' should return 'GameAssetManager &'.
+[PiramidAsset.h:20]: (style) Unused private function: 'PiramidAsset::checkError'
+[PiramidAsset.cc:7]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[main.cc:37]: (performance) Function parameter 'window' should be passed by reference.
+[main.cc:37]: (performance) Function parameter 'game_world' should be passed by reference.
