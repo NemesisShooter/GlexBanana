@@ -26,7 +26,7 @@ class GameAssetManager {
   virtual ~GameAssetManager();
   GameAssetManager(GameAssetManager const&); // copy constructor
   GameAssetManager(GameAssetManager const&&); // move constructor
-  void operator=(GameAssetManager const&); // assignment
+  void operator=(&GameAssetManager const&); // assignment
   void AddAsset(std::shared_ptr<GameAsset>);
   void Draw(glm::mat4, glm::mat4);
 
